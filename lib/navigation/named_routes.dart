@@ -37,7 +37,7 @@ class NamedRoutesWithParams extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    logger.i("starting main");
+    logger.i("building namedRoutes widget");
 
     FlutterError.onError = (error) {
       FlutterError.presentError(error);

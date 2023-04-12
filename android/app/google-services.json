@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "620834351085",
+    "project_id": "poemapp-d0967",
+    "storage_bucket": "poemapp-d0967.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620834351085:android:29f681efacae979c99e9e4",
+        "android_client_info": {
+          "package_name": "com.example.poems_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620834351085-5sg0k2tiekvuem9lf6v8vg9rq512o66s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUwXuUnemEV4UOLRttpEk0C4uOuFQFBxM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620834351085-5sg0k2tiekvuem9lf6v8vg9rq512o66s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "620834351085-v0odo22mk6cmrahad6ueb63qje2ls8ij.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.poemApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
