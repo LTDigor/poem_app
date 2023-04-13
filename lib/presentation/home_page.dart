@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:poems_app/di/di.dart';
-import 'package:poems_app/lang.dart';
+import 'package:poems_app/presentation/lang.dart';
 
 
 class HomePage extends ConsumerWidget {

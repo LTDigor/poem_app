@@ -8,6 +8,7 @@ abstract class ThemeText {
     fontSize: 17,
     color: Colors.black,
   );
+
   static final TextStyle boldText = GoogleFonts.inter(
     fontSize: 23,
     color: Colors.black,
@@ -15,7 +16,7 @@ abstract class ThemeText {
   );
 
   static final TextStyle smallBoldText = GoogleFonts.inter(
-    fontSize: 13,
+    fontSize: 15,
     color: Colors.black,
     fontWeight: FontWeight.w700,
   );
