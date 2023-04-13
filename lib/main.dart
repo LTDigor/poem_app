@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:poems_app/navigation/named_routes.dart';
+import 'package:poems_app/presentation/navigation/named_routes.dart';
 
 @immutable
 class MyColors extends ThemeExtension<MyColors> {
@@ -38,7 +38,7 @@ class MyColors extends ThemeExtension<MyColors> {
 
 void main() {
   // Slow down time to see lerping.
-  timeDilation = 5.0;
+  timeDilation = 2.0;
   runApp(const NamedRoutesWithParams());
 }
 

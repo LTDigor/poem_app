@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:poems_app/login/forgotPass.dart';
-import 'package:poems_app/login/login.dart';
+import 'package:poems_app/presentation/edit.dart';
 import 'package:poems_app/presentation/home_page.dart';
+import 'package:poems_app/presentation/login/forgotPass.dart';
+import 'package:poems_app/presentation/login/login.dart';
 import 'package:poems_app/presentation/settings.dart';
-
-import '../presentation/edit.dart';
 
 class Routes {
   static const home = '/';
