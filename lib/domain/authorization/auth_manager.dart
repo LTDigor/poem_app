@@ -8,13 +8,11 @@ class AuthManager {
   final AuthNotifier authNotifier;
   StreamSubscription<User?>? subscription;
 
-
   AuthManager(this.authNotifier);
 
   void init() {
-    subscription ??= FirebaseAuth.instance
-        .authStateChanges()
-        .listen((User? user) {
+    subscription ??=
+        FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
         authNotifier.signOut();
       } else {

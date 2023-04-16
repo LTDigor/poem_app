@@ -45,15 +45,15 @@ class Authentication {
       await showDialog(
           context: context,
           builder: (ctx) => AlertDialog(
-              title: Text(Lang.of(context).errorMessage),
-              content: Text(e.toString()),
-              actions: [
-                TextButton(
-                    onPressed: () {
-                      Navigator.of(ctx).pop();
-                    },
-                    child: Text(Lang.of(context).ok))
-              ]));
+                  title: Text(Lang.of(context).errorMessage),
+                  content: Text(e.toString()),
+                  actions: [
+                    TextButton(
+                        onPressed: () {
+                          Navigator.of(ctx).pop();
+                        },
+                        child: Text(Lang.of(context).ok))
+                  ]));
     } catch (e) {
       if (e == 'email-already-in-use') {
         // print('Email already in use.');
@@ -69,7 +69,7 @@ class Authentication {
 
     // Obtain the auth details from the request
     final GoogleSignInAuthentication googleAuth =
-    await googleUser!.authentication;
+        await googleUser!.authentication;
 
     // Create a new credential
     final credential = GoogleAuthProvider.credential(

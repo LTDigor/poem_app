@@ -6,7 +6,6 @@ class Lang {
   static const ru = Locale('ru');
   static const supportedLocales = [ru, en];
 
-
   static const LocalizationsDelegate<AppLocalizations> delegate =
       AppLocalizations.delegate;
 
@@ -15,5 +14,5 @@ class Lang {
 
   static bool isEn(Locale locale) => locale == en;
 
-  const Lang._();  // no instance
+  const Lang._(); // no instance
 }

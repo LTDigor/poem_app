@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:poem_app/di.dart';
-import '../styles/buttons.dart';
-import 'pass_form.dart';
 
 import '../lang.dart';
+import '../styles/buttons.dart';
 import '../styles/texts.dart';
+import 'pass_form.dart';
 
 class LoginInner extends ConsumerWidget {
   const LoginInner({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final manager = ref.watch(managerProvider);
+    final manager = ref.watch(loginManagerProvider);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,

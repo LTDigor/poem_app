@@ -1,14 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:poem_app/di.dart';
-import 'package:poem_app/presentation/lang.dart';
-import 'package:poem_app/presentation/login/forgotPassInner.dart';
-import 'package:poem_app/presentation/login/login_inner.dart';
-import 'singup_inner.dart';
-import '/presentation/styles/texts.dart';
-
-import 'package:poem_app/presentation/styles/buttons.dart';
 
 class LoginPage extends ConsumerWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -33,15 +27,28 @@ class LoginPage extends ConsumerWidget {
                 height: 500,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    color: Colors.white54,
+                    color: Colors.white70,
                   ),
                   child: Center(
                     child: SizedBox(
                       width: 300,
-                      child: stateLoginSignUp.when(
-                        login: () => LoginInner(),
-                        signup: () => SignUpInner(),
-                        forgotPass: () => ForgotPassInner(),
+                      child: FirebaseUIActions(
+                        actions: [
+                          AuthStateChangeAction<SignedIn>((context, state) {
+                            if (!state.user!.emailVerified) {
+                              Navigator.pushNamed(context, '/verify-email');
+                            } else {
+                              Navigator.pushReplacementNamed(
+                                  context, '/profile');
+                            }
+                          }),
+                        ],
+                        child: LoginView(
+                          action: AuthAction.signIn,
+                          providers: FirebaseUIAuth.providersFor(
+                            FirebaseAuth.instance.app,
+                          ),
+                        ),
                       ),
                     ),
                   ),

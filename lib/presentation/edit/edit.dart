@@ -2,22 +2,20 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:poem_app/domain/navigation/named_routes.dart';
 import 'package:poem_app/presentation/styles/texts.dart';
 
+import '/di.dart';
 import '../lang.dart';
 
-class EditPage extends StatefulWidget {
+class EditPage extends ConsumerWidget {
   const EditPage({Key? key}) : super(key: key);
 
   @override
-  State<EditPage> createState() => _EditPageState();
-}
-
-class _EditPageState extends State<EditPage> {
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    logger.i("Edit page build");
+    final manager = ref.watch(appearManagerProvider);
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.all(10),
@@ -47,42 +45,18 @@ class _EditPageState extends State<EditPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red[50],
-                      shape: CircleBorder(),
-                      side: BorderSide(color: Colors.red, width: 2),
-                    ),
-                    onPressed: () {},
-                    child: Center(
-                        child: Text(
-                          '1',
-                          style: ThemeText.smallBold,
-                        ))),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red[50],
-                      shape: CircleBorder(),
-                      side: BorderSide(color: Colors.red, width: 2),
-                    ),
-                    onPressed: () {},
-                    child: Center(
-                        child: Text(
-                          '2',
-                          style: ThemeText.smallBold,
-                        ))),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red[50],
-                      shape: CircleBorder(),
-                      side: BorderSide(color: Colors.red, width: 2),
-                    ),
-                    onPressed: () {},
-                    child: Center(
-                        child: Text(
-                      '3',
-                          style: ThemeText.smallBold,
-                    ))),
+                AlignButton(
+                  alignFunc: manager.changeAlignStart,
+                  icon: Text('s', style: ThemeText.smallBold),
+                ),
+                AlignButton(
+                  alignFunc: manager.changeAlignCenter,
+                  icon: Text('c', style: ThemeText.smallBold),
+                ),
+                AlignButton(
+                  alignFunc: manager.changeAlignEnd,
+                  icon: Text('e', style: ThemeText.smallBold),
+                ),
               ],
             )
           ],
@@ -92,16 +66,14 @@ class _EditPageState extends State<EditPage> {
   }
 }
 
-class PoemText extends StatefulWidget {
+class PoemText extends ConsumerWidget {
   const PoemText({Key? key}) : super(key: key);
 
   @override
-  State<PoemText> createState() => _PoemTextState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final alignState = ref.watch(appearProvider);
+    logger.i("Main edit field for poem build");
 
-class _PoemTextState extends State<PoemText> {
-  @override
-  Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: TextField(
         decoration: InputDecoration(
@@ -116,6 +88,7 @@ class _PoemTextState extends State<PoemText> {
           //UpperCaseTextFormatter(),
         ],
         cursorColor: Colors.red,
+        textAlign: alignState.align,
         autofocus: true,
         keyboardType: TextInputType.multiline,
       ),
@@ -160,5 +133,26 @@ class FourStringsEnter extends TextInputFormatter {
       text: newValue.text,
       selection: newValue.selection,
     );
+  }
+}
+
+class AlignButton extends StatelessWidget {
+  const AlignButton({Key? key, required this.alignFunc, required this.icon})
+      : super(key: key);
+  final alignFunc;
+  final icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.red[50],
+          shape: CircleBorder(),
+          side: BorderSide(color: Colors.red, width: 2),
+        ),
+        onPressed: () {
+          alignFunc();
+        },
+        child: Center(child: icon));
   }
 }

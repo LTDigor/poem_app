@@ -3,11 +3,9 @@ import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:firebase_ui_oauth_google/firebase_ui_oauth_google.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:poem_app/domain/navigation/named_routes.dart';
 
-import 'domain/firebase_options.dart';
-
+import '/firebase_options.dart';
 
 Future<void> main() async {
   // Slow down time to see lerping.
@@ -18,7 +16,9 @@ Future<void> main() async {
   );
   FirebaseUIAuth.configureProviders([
     EmailAuthProvider(),
-    GoogleProvider(clientId: '620834351085-5sg0k2tiekvuem9lf6v8vg9rq512o66s.apps.googleusercontent.com'),
+    GoogleProvider(
+        clientId:
+            '620834351085-5sg0k2tiekvuem9lf6v8vg9rq512o66s.apps.googleusercontent.com'),
   ]);
 
   runApp(const NamedRoutesWithParams());

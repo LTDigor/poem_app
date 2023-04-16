@@ -27,6 +27,7 @@ mixin _$AuthState {
 abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
+
   @useResult
   $Res call({User? user});
 }
@@ -38,6 +39,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -60,6 +62,7 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
   factory _$$_AuthStateCopyWith(
           _$_AuthState value, $Res Function(_$_AuthState) then) =
       __$$_AuthStateCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({User? user});
@@ -123,6 +126,7 @@ abstract class _AuthState implements AuthState {
 
   @override
   User? get user;
+
   @override
   @JsonKey(ignore: true)
   _$$_AuthStateCopyWith<_$_AuthState> get copyWith =>

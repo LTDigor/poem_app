@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:poem_app/presentation/edit/edit.dart';
 import 'package:poem_app/presentation/home_page.dart';
-import 'package:poem_app/presentation/login/forgotPassInner.dart';
 import 'package:poem_app/presentation/login/login_mobile.dart';
-
 import 'package:poem_app/presentation/settings.dart';
-
-import '../../presentation/login/default_login.dart';
 
 class Routes {
   static const home = '/';
@@ -25,7 +21,7 @@ class Routes {
         widget = const Settings();
         break;
       case login:
-        widget = const DefaultLoginPage();
+        widget = const LoginPage();
         break;
       default:
         widget = const HomePage();
